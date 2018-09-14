@@ -31,17 +31,17 @@ public class TimeLine extends Data {
     private boolean isServiceInfoMatch(int qServiceId, int qServiceVariationId) {
         return (qServiceId == 0)
                 || (qServiceId == this.serviceId
-                    && (qServiceVariationId == 0 || qServiceVariationId == this.variationId));
+                && (qServiceVariationId == 0 || qServiceVariationId == this.variationId));
     }
 
     private boolean isQuestionInfoMatch(int qQuestionTypeId, int qCategoryId, int qSubCategoryId) {
         return (qQuestionTypeId == 0)
                 || (qQuestionTypeId == this.questionTypeId
-                    && (qCategoryId == 0 || qCategoryId == this.categoryId))
-                    && (qSubCategoryId == 0 || qSubCategoryId == this.subCategoryId);
+                && (qCategoryId == 0 || qCategoryId == this.categoryId))
+                && (qSubCategoryId == 0 || qSubCategoryId == this.subCategoryId);
     }
 
-    private boolean isResponseTypeMatch(char qResponseType){
+    private boolean isResponseTypeMatch(char qResponseType) {
         return qResponseType == this.responseType;
     }
 

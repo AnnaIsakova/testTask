@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class DataUtil {
 
-    public static TimeLine getTimeLineFromInput(String input){
+    public static TimeLine getTimeLineFromInput(String input) {
         TimeLine result = new TimeLine();
         String[] data = input.split(" ");
         setServiceData(result, data[Properties.SERVICE_INFO_INDEX]);
@@ -15,7 +15,7 @@ public class DataUtil {
         return result;
     }
 
-    public static Query getQueryFromInput(String input){
+    public static Query getQueryFromInput(String input) {
         Query result = new Query();
         String[] data = input.split(" ");
         setServiceData(result, data[Properties.SERVICE_INFO_INDEX]);
@@ -25,7 +25,7 @@ public class DataUtil {
         return result;
     }
 
-    private static void setServiceData(Data timeLine, String serviceData){
+    private static void setServiceData(Data timeLine, String serviceData) {
         String[] serviceInfo = serviceData.split("\\.");
         validateData(serviceInfo.length, 1, 2);
 
@@ -35,11 +35,11 @@ public class DataUtil {
         }
     }
 
-    private static void setQuestionData(Data timeLine, String questionData){
+    private static void setQuestionData(Data timeLine, String questionData) {
         String[] questionInfo = questionData.split("\\.");
         validateData(questionInfo.length, 1, 3);
 
-        if (timeLine instanceof Query && questionInfo[0].equals("*")){
+        if (timeLine instanceof Query && questionInfo[0].equals("*")) {
             return;
         }
         timeLine.setQuestionTypeId(Integer.parseInt(questionInfo[0]));
@@ -51,7 +51,7 @@ public class DataUtil {
         }
     }
 
-    private static void setDateInterval(Query query, String dateInterval){
+    private static void setDateInterval(Query query, String dateInterval) {
         String[] dateInfo = dateInterval.split("-");
         validateData(dateInfo.length, 1, 2);
 
@@ -61,13 +61,13 @@ public class DataUtil {
         }
     }
 
-    private static void validateData(int givenLength, int min, int max){
+    private static void validateData(int givenLength, int min, int max) {
         if (givenLength < min || givenLength > max) {
             throw new IllegalArgumentException("Input malformed");
         }
     }
 
-    private static Date getDateFromString(String date){
+    private static Date getDateFromString(String date) {
         Date result = null;
         SimpleDateFormat formatter = new SimpleDateFormat(Properties.DATE_PATTERN);
         try {

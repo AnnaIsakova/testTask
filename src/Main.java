@@ -13,9 +13,9 @@ public class Main {
             input = scanner.nextLine();
             if (input.isEmpty()) throw new IllegalArgumentException("Input malformed");
             char firstChar = input.charAt(0);
-            if (firstChar == Properties.TIME_LINE_MARKER){
+            if (firstChar == Properties.TIME_LINE_MARKER) {
                 collectData(input);
-            } else if (firstChar == Properties.QUERY_MARKER){
+            } else if (firstChar == Properties.QUERY_MARKER) {
                 System.out.println(getQueryProcessResult(input));
             } else {
                 throw new IllegalArgumentException("Input malformed");
@@ -34,16 +34,16 @@ public class Main {
         Query query = DataUtil.getQueryFromInput(input);
         int totalMinutes = 0;
         double counter = 0.0;
-        for (TimeLine t:timeLines) {
+        for (TimeLine t : timeLines) {
             if (t.isMatchTheQuery(query)) {
                 totalMinutes += t.getMinutes();
                 counter++;
             }
         }
-        if (counter == 0){
+        if (counter == 0) {
             return result;
         } else {
-            long average = Math.round(totalMinutes/counter);
+            long average = Math.round(totalMinutes / counter);
             return String.valueOf(average);
         }
     }
